@@ -1,0 +1,10 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    <h1>¿Estas seguro que quieres eliminar la materia {{materia.nombre}}?</h1>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a class="btn btn-secondary" href="{% url 'Materias' %}">Regresar</a>
+</form>
+{% endblock %}

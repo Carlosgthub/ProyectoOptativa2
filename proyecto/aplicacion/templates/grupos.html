@@ -1,0 +1,32 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+<h1>Control de grupos</h1>
+
+<a class="btn btn-primary mt-3 mb-5" href="{% url 'RegistrarGrupo' %}">Registrar alumno a una materia</a>
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<table class="table table-striped mt-2">
+    <th>Grupo de la materia</th>
+
+    {% for grupo in grupos %}
+    <tr>
+        <td> <a href="{% url 'GrupoDetalle' grupo.materia %}">{{grupo}}</a></td>
+    </tr>
+    {% endfor %}
+    
+</table>
+
+{% endblock contenido %}

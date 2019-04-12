@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Detalles del alumno</h1>
+
+<br>
+<br>
+
+    <h3>Nombre:</h3>
+    <p>{{object.nombre}}</p>
+
+    <h3>Apellido:</h3>
+    <p>{{object.apellido}}</p>
+
+    <h3>Carrera:</h3>
+    <p>{{object.carrera}}</p>
+
+    <a class="btn btn-dark" href="javascript:history.back()">Regresar</a>
+
+{% endblock contenido %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary">Modificar</button>
+    <a class="btn btn-secondary ml-2" href="javascript:history.back()">Regresar</a>
+</form>
+{% endblock %}

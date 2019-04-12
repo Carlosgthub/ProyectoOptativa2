@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Alumnos de la materia de {{materia}}</h1>
+
+<br>
+
+<h4>Maestro: {{materia.maestro}}</h4>
+
+<br>
+<br>
+
+<table class="table table-striped mt-2">
+    <th>Matricula</th>
+    <th>Alumno</th>
+    <th>Carrera</th>
+    <th>Acciones</th>
+
+    {% for grupo in grupos %}
+    <tr>
+        <td>{{grupo.alumno.id}}</td>
+        <td>{{grupo.alumno.apellido}} {{grupo.alumno.nombre}}</td>
+        <td>{{grupo.alumno.carrera}}</td>
+        <td><a class="btn btn-danger" href="{% url 'borrarAlumnoGrupo' grupo.id materia.id %}">Borrar</a></td>
+    </tr>
+    {% endfor %}
+    
+</table>
+
+
+<a class="btn btn-dark" href="{% url 'Grupos' %}">Regresar</a>
+
+{% endblock contenido %}

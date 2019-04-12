@@ -1,0 +1,35 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+<h1>Control de carreras</h1>
+
+<a class="btn btn-primary mt-3 mb-5" href="{% url 'RegistrarCarrera' %}">Registrar carrera nueva</a>
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<table class="table table-striped mt-2">
+    <th>Carrera</th>
+    <th colspan="2">Acciones</th>
+
+    {% for carrera in object_list %}
+    <tr>
+        <td>{{carrera.nombre}}</td>
+        <td><a class="btn btn-info" href="{% url 'ModificarCarrera' carrera.id %}"><i class="fa fa-edit" aria-hidden="true"></i> Editar</a></td>
+        <td><a class="btn btn-danger" href="{% url 'EliminarCarrera' carrera.id %}"><i class="fa fa-times" aria-hidden="true"></i> Eliminar</a></td>
+    </tr>
+    {% endfor %}
+    
+</table>
+
+{% endblock contenido %}
